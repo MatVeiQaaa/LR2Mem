@@ -10,6 +10,37 @@ namespace LR2 {
 	class CSTR {
 	public:
 		char* body;
+	public:
+		CSTR() {
+			typedef void(__thiscall* tCtor)(CSTR* pThis);
+			tCtor ctor = (tCtor)0x43B630;
+			ctor(this);
+		};
+		CSTR(int size) {
+			typedef void(__thiscall* tCtor)(CSTR* pThis, int size);
+			tCtor ctor = (tCtor)0x43AD60;
+			ctor(this, size);
+		};
+		CSTR(const CSTR& copy, int len = 0) {
+			typedef void(__thiscall* tCtor)(CSTR* pThis, const CSTR& copy, int len);
+			tCtor ctor = (tCtor)0x43B650;
+			ctor(this, copy, len);
+		};
+		CSTR(const char* str, int len = 0) {
+			typedef void(__thiscall* tCtor)(CSTR* pThis, const char* str, int len);
+			tCtor ctor = (tCtor)0x43B6C0;
+			ctor(this, str, len);
+		};
+		~CSTR() {
+			typedef void(__thiscall* tDtor)(CSTR* pThis);
+			tDtor dtor = (tDtor)0x43AD80;
+			dtor(this);
+		};
+		CSTR& assign(const char* str, int len = 0) {
+			typedef CSTR&(__thiscall* tAssign)(CSTR* pThis, const char* str, int len);
+			tAssign assign = (tAssign)0x43B7E0;
+			return assign(this, str, len);
+		}
 	};
 
 	struct Timer {
@@ -1057,6 +1088,7 @@ namespace LR2 {
 		int rseed;
 		CSTR ghost; /* struct to? */
 	};
+#include <winsock.h>
 	struct NETWORK {
 		WSADATA wsa;
 		int isOnline;
