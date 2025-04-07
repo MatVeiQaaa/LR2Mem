@@ -14,6 +14,8 @@ namespace LR2 {
 
 	inline game* pGame = 0;
 
+	static char trampBuff[10];
+
 	static bool Detour32(void* src, void* dst, int len) {
 		const unsigned int CALL = 0xE8;
 		const unsigned int JMP = 0xE9;
@@ -26,7 +28,10 @@ namespace LR2 {
 		DWORD curProtection = 0;
 		BOOL hResult = VirtualProtect(src, len, PAGE_EXECUTE_READWRITE, &curProtection);
 
-		void* gateway = VirtualAlloc(0, JMP_SIZE + JMP_SIZE, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+		//void* gateway = VirtualAlloc(0, JMP_SIZE + JMP_SIZE, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+		void* gateway = &trampBuff;
+		DWORD shit = 0;
+		VirtualProtect(gateway, 10, PAGE_EXECUTE_READWRITE, &shit);
 
 		uintptr_t relativeAddress = ((uintptr_t)gateway - (uintptr_t)src) - JMP_SIZE;
 		intptr_t  gatewayToSourceRelativeAddr = (intptr_t)src - (intptr_t)gateway - JMP_SIZE - JMP_SIZE;
