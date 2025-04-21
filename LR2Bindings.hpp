@@ -13,6 +13,7 @@ namespace LR2 {
 	inline std::uintptr_t stackOffset = 0;
 
 	inline game* pGame = 0;
+	inline void* pSqlite = 0;
 
 	static char trampBuff[10];
 
@@ -63,8 +64,12 @@ namespace LR2 {
 			push eax
 			mov eax, FS : [0x04]
 			mov LR2::stackOffset, eax
+			mov ebx, dword ptr ds : [eax - 0xA084C]
+			mov LR2::pSqlite, ebx
+			xor ebx,ebx
 			lea eax, dword ptr ds : [eax - 0x0A07C8]
 			mov LR2::pGame, eax
+
 			inc LR2::isInit
 			pop eax
 
