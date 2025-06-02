@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{c8dc0d46-bc28-4bef-9cfa-c3989bfe8a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{07552f74-d36a-4ab4-ae45-9b50aca7ef5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\safetyhook">
+      <UniqueIdentifier>{33ecbd91-537a-4d57-a4a6-104edbba7376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\safetyhook">
+      <UniqueIdentifier>{e2ff93a9-cff8-413e-95c8-f21ac959b130}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LR2Bindings.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LR2Typedefs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="safetyhook\Zydis.h">
+      <Filter>Header Files\safetyhook</Filter>
+    </ClInclude>
+    <ClInclude Include="safetyhook\safetyhook.hpp">
+      <Filter>Header Files\safetyhook</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LR2Mem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="safetyhook\safetyhook.cpp">
+      <Filter>Source Files\safetyhook</Filter>
+    </ClCompile>
+    <ClCompile Include="safetyhook\Zydis.c">
+      <Filter>Source Files\safetyhook</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
