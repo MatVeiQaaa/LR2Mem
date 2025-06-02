@@ -1,0 +1,34 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+        
+      - name: Set up msbuild
+        uses: microsoft/setup-msbuild@v2
+        
+      - name: Build
+        run: |
+          msbuild LR2Mem.vcxproj /t:Build /p:Configuration=Release /p:Platform=x86
+          
+      - name: Publish release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Latest Build"
+          files: |
+            lib/Release/LR2Mem.lib
