@@ -9,5 +9,5 @@ namespace LR2 {
 	inline game* pGame = 0;
 	inline void* pSqlite = 0;
 
-	static void Init();
+	void Init();
 }
