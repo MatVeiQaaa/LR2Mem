@@ -1,3 +1,4 @@
+#pragma once
 #include "LR2Typedefs.hpp"
 
 typedef unsigned char undefined;
