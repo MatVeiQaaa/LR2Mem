@@ -1435,7 +1435,10 @@ namespace LR2 {
 		int fadeoutBGAstart[10];
 		int fadeoutBGAend[10];
 		int bgaMixer[10];
-		int isPreviewLoad;
+		char isPreviewLoad;
+		undefined field145_0x7c229;
+		undefined field146_0x7c22a;
+		undefined field147_0x7c22b;
 		HANDLE hThreadPreview;
 		int previewStatus; /* 1:start 2:loaded */
 		CSTR previewBMShash;
