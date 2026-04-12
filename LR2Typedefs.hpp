@@ -1,7 +1,9 @@
 #pragma once
+
+#include <windows.h>
+
 #include "FMODex/fmod.h"
 #include <vfw.h>
-#include <windows.h>
 #include <winsock.h>
 
 typedef unsigned char undefined;
