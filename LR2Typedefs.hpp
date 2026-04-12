@@ -1,6 +1,8 @@
 #pragma once
-#include <Windows.h>
-#include <cstdint>
+#include "FMODex/fmod.h"
+#include <vfw.h>
+#include <windows.h>
+#include <winsock.h>
 
 typedef unsigned char undefined;
 typedef unsigned int undefined4;
@@ -883,7 +885,6 @@ namespace LR2 {
 	};
 
 	// RECORDING
-#include <Vfw.h>
 	struct RECORDING {
 		HDC srcHDC; /* struct_entry */
 		undefined4 unk4;
@@ -907,7 +908,6 @@ namespace LR2 {
 	};
 
 	// AUDIO
-#include "FMODex/fmod.h"
 	struct RAWSOUND {
 		int channels;
 		int samples;
@@ -1089,7 +1089,6 @@ namespace LR2 {
 		int rseed;
 		CSTR ghost; /* struct to? */
 	};
-#include <winsock.h>
 	struct NETWORK {
 		WSADATA wsa;
 		int isOnline;
