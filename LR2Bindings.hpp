@@ -1,5 +1,8 @@
 #pragma once
+
 #include "LR2Typedefs.hpp"
+
+#include <cstdint>
 
 namespace LR2 {
 	inline bool isInit = false;
