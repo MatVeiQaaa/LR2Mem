@@ -649,6 +649,11 @@ namespace LR2 {
 		int loop;
 		int dstCount;
 	};
+    struct CSVbuf
+    {
+        int val[30]{};
+        CSTR str[30]{};
+    };
 	struct DrawingBuf {
 		struct DSTdraw* dstd;
 		int max;
